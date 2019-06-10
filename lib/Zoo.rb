@@ -1,4 +1,5 @@
 class Zoo
+    attr_reader :name, :location 
 
     @@all = []
 
@@ -22,13 +23,13 @@ class Zoo
 
      def animal_nicknames
         animal.map {|a| a.nickname}
-    end 
+     end 
  
      def find_by_species(species)
         animal.all.find do |a| a.species.name == species
      end 
-
-     def find_by_location(location)
-
+    end 
+     def self.find_by_location(location)
+         Zoo.all.select {|zoo| zoo.location == location}
      end 
 end
